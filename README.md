@@ -1,6 +1,8 @@
 # Genetic Tempering with a Graphics Processing Unit (GT-GPU)
 A flexible genetic algorithm used to temper Monte Carlo results
 
+Requirements: OpenCL driver, julia (made with v0.6.1), and opencl package in julia.  Can be extended to other operating systems.
+
 # Overview
 
 The goal of this code is to generate some basic principles for making Monte Carlo on a GPU that is no more complicated than the Metropolis-Hastings algorithm.  The parallelization scheme looks like parallel tempering but represents the idealized limit of perfectly uncorrelated Monte Carlo iterations and all possible crossings.  GT-GPU does not reproduce the exact crossing structure, as commented in the main text, and so is a separate method.  The main source of systematic error leads to a hysteresis loop from unthermalized samples, but this is reduced with more sampling.  The results converge very quickly.
