@@ -1,7 +1,7 @@
 # Genetic Tempering with a Graphics Processing Unit (GT-GPU)
 A flexible genetic algorithm used to temper Monte Carlo results
 
-Requirements: OpenCL driver, julia (made with v0.6.1), and opencl package in julia.  Can be extended to other operating systems.
+Requirements: OpenCL driver, julia (made with v0.6.1), and opencl package in julia.
 
 # Overview
 
