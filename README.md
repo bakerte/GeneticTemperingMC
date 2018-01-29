@@ -74,16 +74,17 @@ In order to implement a new model, at least the calculation of the energy change
 
 To avoid any lingering unthermalized states, the program selects the thread whose $\overline{x}^{(w)}$ is closest to $\langle x\rangle$ after the first set of delay loops.
 
-\subsubsection{Parameters and Hysteresis}
+# Parameters and Hysteresis
 
-The number of threads $\Jloops{}$ should be made as large as the memory on the GPU allows since this has very little overhead.
+The number of threads $\mathcal{J}$ should be made as large as the memory on the GPU allows since this has very little overhead.
 
-A good guideline for the number of samples in a single loop algorithm is $\N{}\ll\eta\Nloop{}$ ({\it i.e.} the number of MC samples visits each site enough times), but for GT-GPU, it is only necessary that enough samples are thermalized and $\Jloops{}$ is high. A systematic review of parameters is avoided here since each system has a different relaxation time.  The advice to follow is to examine carefully the hysteresis loop.  This conveys all the information about how relaxed the ensemble of samples are.  If necessary, that information can be printed out directly. Fig.~\ref{hyst} shows a hysteresis loop for Fig.~\ref{Ising_EM}.
+A good guideline for the number of samples in a single loop algorithm is ($\Omega$=lattice sites) $\Omega\ll\eta\mathcal{N}$ ({\it i.e.} the number of MC samples visits each site enough times), but for GT-GPU, it is only necessary that enough samples are thermalized and $\Jloops{}$ is high. A systematic review of parameters is avoided here since each system has a different relaxation time.  The advice to follow is to examine carefully the hysteresis loop.  This conveys all the information about how relaxed the ensemble of samples are.  If necessary, that information can be printed out directly.
 
-In the language of Ref.~\onlinecite{neirotti2000approach}, the sampling has not left the correlated-noise region into the desired stochastic-noise region.  This points to the one caution when using GT-GPU: enough samples must be used to ensure that correlated noise is minimized in the final result.  
+In the language of J. Neirotti, D. L. Freeman, and J. Doll, Phys. Rev. E
+62, 7445 (2000)., the sampling has not left the correlated-noise region into the desired stochastic-noise region.  This points to the one caution when using GT-GPU: enough samples must be used to ensure that correlated noise is minimized in the final result.  
 
-\subsubsection{Phase Transitions}
+# Phase Transitions
 
-One way to find a phase transition is to plot one of the quantities of interest, Eqs.~\eqref{specificheat}--\eqref{binder}, and note where $T_c$ is approximately.  This first calculation is done with a low level of precision and accuracy.
+One way to find a phase transition is to plot one of the quantities of interest and note where $T_c$ is approximately.  This first calculation is done with a low level of precision and accuracy.
 
-After this, another run with increased threads and MC loops is run over a reduced temperature range.  Typically, having an error less than the change in temperature is advised.  It is not important for the hysteresis loop to be accurate, especially when the final run is far more accurate (either by an increase of $\Jloops{}$ or $\Nloop{}_\mathrm{GPU}$).
+After this, another run with increased threads and MC loops is run over a reduced temperature range.  Typically, having an error less than the change in temperature is advised.  It is not important for the hysteresis loop to be accurate, especially when the final run is far more accurate (either by an increase of $\mathcal{J}$ or $\mathcal{N}_\mathrm{GPU}$).
