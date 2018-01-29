@@ -61,7 +61,7 @@ so only a single cluster ($c$) of five spins needs to be calculated so the summa
 
 Note that the left hand side of Eq.~\eqref{flipcondition} is rewritten with a logarithm in the code and can be pre-generated at the beginning, leaving only the energy difference $\delta E$ needs to be generated on the GPU.  The return variables are individual $M$ and $E$ values for each stored ensemble.
 
-It will look a little different from ![this](GeneticTemperingMC/Ising_Orders.png).
+It will look a little different from ![this](GeneticTemperingMC/Ising_Orders.png). (Note an excellent review of Monte Carlo by ![J. Kotze](https://arxiv.org/abs/0803.0217) that discusses sampling of the magnetic susceptibility)
 
 The specific heat ($c_V$) and magnetic susceptibility ($\chi_M$) per site and Binder cumulant ($B$) for the Ising model generated with the same parameters as Fig.~\ref{Ising_EM}. Finite size effects prevent $c_V$ and $\chi_M$ from having a singularity.  The peaks in the curves are misaligned due to the level of precision run and the finite size effects.
 
