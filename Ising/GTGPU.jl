@@ -16,11 +16,12 @@ const Nloop = 1_000 #number of MC loops
 const GPUloops = 1_000 #Number of instances of lattices on the GPU...an upper limit depends on the GPU's memory size
 
 #adding a multiplier doesn't add much overhead, better to have higher M and lower Nloop on a laptop for heat reasons
+#number of cycles for hysteresis loop
 const delayloops = 5 #number of loops to check while thermalizing in generating hysteresis loop
-const delaymult = 1
-
-const relaxloops = 10
-const maxmult = 10 #multiplier on GPU step...effectively M*Nloop-delay = upper bound on the states kept
+const delaymult = 1 #store data for delaymult*Nloop iterations
+#number of cycles in the final sweep
+const relaxloops = 10 #delay on taking final sweep data
+const maxmult = 10 #total Monte Carlo iterations: maxmult*Nloop iterations
 
 const var = 1 #"1" = energy
 
