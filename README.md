@@ -1,3 +1,5 @@
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
 # Genetic Tempering with a Graphics Processing Unit (GT-GPU)
 A flexible genetic algorithm used to temper Monte Carlo results
 
@@ -25,7 +27,7 @@ It is not guaranteed that the test code will work on other machines.  Often, cha
 
 The algorithm is tested here on a low-level machine with a dual-core Unix-based operating system (MacOS) with a processor speed of 1.3 GHz.   The GPU is the Intel HD Graphics 5000 with 1536 MB of memory. The sampling took about 3 minutes on this machine and half that with double the processing speed.  Yet high quality results were obtained.
 
-With a sufficiently small enough MC samples ($\mathcal{N}$) but arbitrary multiplication factor $\eta$, even this low level machine were easily obtained for reasonable lattice sizes.  No loss of precision occurred for the quantities themselves since they were returned to the CPU and converted to 64 bit floats before any division or similar operation occurred. Also note that setting $\Nloop{}$ higher by itself in the code with constant $\eta$ might give an overflow (especially for $\langle M^4\rangle$) which will show up in strange results.  It is important to keep $\Nloop{}$ low for this reason and increase $\eta$.  There is little overhead for partitioning instead of running all at once, except on the random number generator's side in julia.
+With a sufficiently small enough MC samples ($$\mathcal{N}$$) but arbitrary multiplication factor $\eta$, even this low level machine were easily obtained for reasonable lattice sizes.  No loss of precision occurred for the quantities themselves since they were returned to the CPU and converted to 64 bit floats before any division or similar operation occurred. Also note that setting $\Nloop{}$ higher by itself in the code with constant $\eta$ might give an overflow (especially for $\langle M^4\rangle$) which will show up in strange results.  It is important to keep $\Nloop{}$ low for this reason and increase $\eta$.  There is little overhead for partitioning instead of running all at once, except on the random number generator's side in julia.
 
 # Graphics Processing Unit Limits
 
