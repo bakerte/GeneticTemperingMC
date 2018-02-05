@@ -34,8 +34,8 @@ const MCloop_kernel = "
       int ind,leftind,rightind,topind,bottomind;
       int count = 0;
 
-      float currE = 0.;
-      float currM = 0.;
+      float currE = 0.f;
+      float currM = 0.f;
 
       for (int i = 1;i<=latsize;i++)
       {
@@ -46,12 +46,12 @@ const MCloop_kernel = "
         currM += convert_float(psi[gid + GPUloops * (ind-1)]);
       }
 
-      float avgE = 0.;
-      float avgM = 0.;
-      float avgAbsM = 0.;
-      float avgEsq = 0.;
-      float avgMsq = 0.;
-      float avgMfour = 0.;
+      float avgE = 0.f;
+      float avgM = 0.f;
+      float avgAbsM = 0.f;
+      float avgEsq = 0.f;
+      float avgMsq = 0.f;
+      float avgMfour = 0.f;
 
       bool toggle;
 
@@ -121,7 +121,7 @@ dE = psi[gid + GPUloops * (ind-1)]*(psi[gid + GPUloops * (leftind-1)]
       result[gid + GPUloops*3] = origMsq;
       result[gid + GPUloops*4] = fabs(currM);
       result[gid + GPUloops*5] = origMfour;
-      result[gid + GPUloops*6] = 0.;
+      result[gid + GPUloops*6] = 0.f;
     }
   }
 "
