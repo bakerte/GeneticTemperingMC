@@ -102,8 +102,8 @@ dE = psi[gid + GPUloops * (ind-1)]*(psi[gid + GPUloops * (leftind-1)]
     if (count > 0)
     {
       float fcount = convert_float(count);
-      result[gid + GPUloops*0] = J*avgE;
-      result[gid + GPUloops*1] = J*J*avgEsq;
+      result[gid + GPUloops*0] = avgE;
+      result[gid + GPUloops*1] = avgEsq;
       result[gid + GPUloops*2] = avgM;
       result[gid + GPUloops*3] = avgMsq;
       result[gid + GPUloops*4] = avgAbsM;
@@ -115,12 +115,13 @@ dE = psi[gid + GPUloops * (ind-1)]*(psi[gid + GPUloops * (leftind-1)]
       float origMsq,origMfour;
       origMsq = currM*currM;
       origMfour = origMsq*origMsq;
-      result[gid + GPUloops*0] = J*currE;
-      result[gid + GPUloops*1] = J*J*currE*currE;
+      result[gid + GPUloops*0] = currE;
+      result[gid + GPUloops*1] = currE*currE;
       result[gid + GPUloops*2] = currM;
       result[gid + GPUloops*3] = origMsq;
       result[gid + GPUloops*4] = fabs(currM);
       result[gid + GPUloops*5] = origMfour;
+      result[gid + GPUloops*6] = 0.;
     }
   }
 "
