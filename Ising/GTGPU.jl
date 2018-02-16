@@ -155,7 +155,7 @@ for qq = interval
   sumsaveCount = zeros(GPUloops)
   #thermalization
   mult = sweep == 1 ? delayloops : relaxloops
-  for pqr = 1:delayloops
+  for pqr = 1:mult
     result_buff = GPUcall()
   end
 
